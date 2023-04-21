@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vikrant-simple-app
+  template:
+    metadata:
+      labels:
+        app: vikrant-simple-app
+    spec:
+      containers:
+      - name: djangodeployment
+        image: vikrantchugh/image3
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
